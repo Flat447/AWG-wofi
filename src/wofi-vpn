@@ -1,0 +1,36 @@
+#!/bin/bash
+
+VPN_UP="/usr/local/bin/vpn-up"
+VPN_DOWN="/usr/local/bin/vpn-down"
+
+show_menu() {
+    cat << EOF
+Включить AWG
+Выключить AWG
+EOF
+}
+
+_select() {
+    show_menu | wofi --dmenu --height=100 --style ~/.config/wofi/style_gruvbox.css --prompt "Выберите действие"
+}
+
+execute() {
+    case "$1" in
+        "Включить AWG")
+            pkexec bash -c "$VPN_UP"
+            notify-send "AmneziaWG" "AWG Включено" --icon=/usr/share/icons/awg.png --urgency=critical
+            ;;
+        "Выключить AWG")
+            pkexec bash -c "$VPN_DOWN"
+            notify-send "AmneziaWG" "AWG Выключено" --icon=/usr/share/icons/awg.png --urgency=critical
+            ;;
+        *)
+            exit 0
+            ;;
+    esac
+}
+
+SELECTION=$(_select)
+if [[ -n "$SELECTION" ]]; then
+    execute "$SELECTION"
+fi

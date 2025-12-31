@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=AWG
+Exec=/usr/local/bin/wofi-vpn
+Categories=wofi;vpn;
+Terminal=false
+Type=Application
+Icon=/usr/share/icons/awg.png

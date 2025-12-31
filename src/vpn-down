@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+
+import os
+
+os.system("sudo /usr/bin/awg-quick down WARP; sudo /usr/local/bin/vpn-dns-helper restore")
