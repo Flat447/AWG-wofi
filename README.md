@@ -7,6 +7,7 @@ sudo pacman -S git wofi polkit python bash libnotify python-pip systemd-resolvco
 sudo systemctl enable --now systemd-resolvconf.service
 sudo systemctl enable --now polkit.service
 ```
+Также нужен полкит агент типо `polkit-gnome` или `polkit-kde-agent` и прописать его в автозагрузку. Путь до полкита гнома: `/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1`
 
 
 ## Установка AmneziaWG 
