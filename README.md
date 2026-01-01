@@ -3,18 +3,21 @@
 ![](images/1.png)
 ## Установка зависимостей
 ```shell
-sudo pacman -S git wofi polkit python bash libnotify python-pip
+sudo pacman -S git wofi polkit python bash libnotify python-pip systemd-resolvconf
+sudo systemctl enable --now systemd-resolvconf.service
 sudo systemctl enable --now polkit.service
 ```
 
 
 ## Установка AmneziaWG 
+Если вы используете стандартное ядро или ядро от CachyOS то можно воспользоваться AUR 
 ```shell
 git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 
 yay -S amneziawg-tools amneziawg-dkms
 ```
+Если вы используете **не**стандартное ядро типо lts, zen то вам [сюда](https://github.com/ritascarlet/Anti-RKN-on-any-linux-distributions)
 
 ## Клонирование репозитория
 ```shell
